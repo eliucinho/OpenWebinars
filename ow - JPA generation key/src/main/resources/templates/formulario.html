@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>OW-Taller</title>
+
+        <!-- Bootstrap CSS -->
+        <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <nav class="navbar navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">
+                  <img th:src="@{/img/ow-logo-secondary.svg}"  class="d-inline-block align-top" alt="">                  
+              ____________________________
+                </a>
+            </nav>
+            <br>
+            <h2>Formulario</h2>
+            <form action="#" th:action="@{/guardar}" th:object="${auto}" method="post">
+                <div class="form-group">
+                    <label for="id">Id</label> 
+                    <input type="text" class="form-control" id="id" th:field="*{id}" name="id">
+                </div>
+                <div class="form-group">
+                    <label for="modelo">Modelo</label> 
+                    <input type="text" class="form-control" id="modelo" th:field="*{modelo}" name="modelo">
+                </div>
+                <div class="form-group">
+                    <label for="marca">Marca</label> 
+                    <input type="text" class="form-control" id="marca" th:field="*{marca}" name="marca">
+                </div>                                
+                <div class="form-group">
+                    <label for="anio">Año</label> 
+                    <input type="number" class="form-control" id="anio" th:field="*{anio}" name="anio">
+                </div>
+
+                <div class="form-group">
+                    <label for="precio">Precio</label> 
+                    <input type="number" class="form-control" id="precio" step="any" th:field="*{precio}" name="precio">
+                </div>
+                
+                <div class="form-group">
+                    <label for="fecha">Fecha</label> 
+                    <input type="date" class="form-control" id="fecha" th:field="*{fecha}" name="fecha">
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+        </div>
+    </body>
+</html>
