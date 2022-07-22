@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>OW-Taller</title>
+
+    <!-- Bootstrap CSS -->
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">
+              <img th:src="@{/img/ow-logo-secondary.svg}"  class="d-inline-block align-top" alt="">                  
+              ____________________________
+            </a>
+        </nav>
+        <br>
+        <div>
+            <h1>Listado</h1>
+            <a href="/crear" class="btn btn-success">Agregar</a>
+        </div>
+        <h3 th:if="${lista.isEmpty()}">No hay datos</h3>
+        <div th:if="${!lista.isEmpty()}">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Id</th>
+                        <th>Modelo</th>
+                        <th>Marca</th>
+                        <th>Año</th>
+                        <th>Precio</th>
+                        <th>Fecha</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="auto : ${lista}">
+                        <td th:text="${auto.id}">
+                        <td th:text="${auto.modelo}">
+                        <td th:text="${auto.marca}">
+                        <td th:text="${auto.anio}">
+                        <td th:text="${auto.precio}">
+                        <td th:text="${auto.fecha}">
+                        <td><a class="btn btn-primary" 
+                               th:href="@{/actualizar/{id}(id=${auto.id})}">Editar</a></td>
+                        <td><a class="btn btn-danger" 
+                               th:href="@{/eliminar/{id}(id=${auto.id})}">Eliminar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

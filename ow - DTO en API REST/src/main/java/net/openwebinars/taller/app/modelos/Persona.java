@@ -11,6 +11,8 @@ import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Data
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 public class Persona {
